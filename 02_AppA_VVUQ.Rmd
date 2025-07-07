@@ -1,69 +1,146 @@
-# Model Development Process
-
-When used in the context of complex management decisions with many partners, environmental and ecological modeling often benefit from approaches that emphasize transparency, increase user input during development, and clearly communicate model assumptions and limitations [@van_den_belt_mediated_2004; @voinov_modelling_2010; @herman_unpacking_2019]. Here, a general five-step modeling process is followed that applies best practices in ecological model development [@grant_ecological_2008]. First, general relationships among essential ecosystem components are formally _conceptualized_ to tell the story of "how the system works" [@fischenich_application_2008]. Second, the model is _quantified_ using a formal structure of functional relationships, algorithms, parameters, and numerical code. Third, models are _evaluated_ relative to underlying scientific theory, numerical accuracy, and usability, which often entails techniques such as code checking, testing, verification, and sensitivity analyses. Fourth, a model is _applied_ to a given management question, scenario, or assessment. Fifth, a strategy is developed and executed to _communicate_ model development and application to technical and non-technical audiences.  This process has been applied numerous times to select, adapt, or develop ecological models for USACE and non-USACE studies [e.g., @mckay_aligning_2019;@herman_unpacking_2019], and the framework is intended to draw heavily from existing knowledge, data, and tools.  
+# Verification, Validation and Uncertainty Quantification Team’s Whitepaper for the Numerical Technology Modernization Plan
 
 
-USACE policy [@USACE_assuring_2011] defines a model as “a representation of a system for a purpose,” and thus specifying a modeling purpose and objective is often a foundational step in the modeling process. **Here, our modeling objective is to articulate the mechanisms and magnitude of environmental effects of proposed coastal storm risk management actions in the New York Bight Ecosystem.** However, this model (like all models) is being developed in a constrained environment with limited time and resources. Three key issues constrained and guided NYBEM development, each of which is addressed in subsequent sections:  
+Version: 1.0.0  
+Date: 2019.03.18  
+Written by: Matthew Farthing and Chris Massey (Chris.Massey@usace.army.mil)
 
-* The model domain is limited to the spatial extent of the focal USACE studies. 
+## Introduction
 
-* Model development is phased to align with USACE project planning milestones.
+### Purpose  
 
-* Transparency in model development and input from stakeholders and partners were actively embraced to increase the adoption and acceptance of the tools, given the high-profile nature of the studies.</p>
+There is a rich literature on Verification Validation and Uncertainty Quantification (VVUQ) across a range of disciplines from nuclear engineering to aeronautics and operations research. The purpose of this whitepaper is not to cover these topics in detail. For excellent reviews and textbooks we recommend (among others) [Oberkampf and Trucano, 2002, 2008, Oberkampf and Roy, 2010] as well as the documentation and guidance from groups such as the Defense Modeling and Simulation Coordination Office (DMSCO), https://vva.msco.mil, and more recent efforts in reproducible scientific research [Piccolo and Frampton, 2016; Nature 2018 ]. Rather, our goal is to provide a summary of on-going VVUQ practice in a key set of models and to recommend steps for establishing a lab-wide VVUQ process as part of the Coastal and Hydraulics Laboratory (CHL) Numerical Technology Modernization Strategy (NTMS).
 
+### Motivation and Background
 
-## Spatial Extent
+Computational modeling and simulation are essential tools in the U.S. Army Corps of Engineers (USACE) efforts to address the Nation’s water resources challenges. To do this effectively the models developed, and applied, must be credible. That is, users must have confidence that the simulations from a computational model have acceptable levels of uncertainty and error [Oberkampf and Trucano, 2002]. There are many ways to define error and uncertainty. As working terms, we will adopt those provided by the American Institute of Aeronautics and Astronautics (AIAA) in their 1998 “Guide for the verification and validation of computational fluid dynamics simulations” [AIAA, 1998].  
 
-The cumulative project area of the ongoing CSRM studies exceeds 3,000 mi^2^ and covers multiple states. The spatial extent of model application was defined by a sequence of three sequentially smaller filters (Figure 2):
+- Error is a recognizable deficiency in any phase or activity of modeling and simulation that is not due to lack of knowledge.  
+- Uncertainty is a potential deficiency in any phase or activity of the modeling process that is due to the lack of knowledge.
 
-- _New York Bight_: The USFWS defined the ecosystems of the New York Bight in 1997 as the "open ocean region south of Long Island and east of New Jersey, known as the New York Bight proper" and all associated upstream estuaries, waters, and lands. This large spatial domain covers 31,276 mi^2^ (10,206 mi^2^ upland watershed and 21,070 mi^2^ estuarine or marine). Specifically, the watershed is defined by ten 8-digit Hydrologic Unit Code (HUC) watersheds (02020006, 02020007, 02020008, 02030101, 02030103, 02030104, 02030105, 02030202, 02040301, and 02040302). The USFWS Bight definition includes all marine ecosystems offshore. However, given the nearshore scope of USACE's studies, seaward extent is limited to ecosystems above a 20m depth contour (i.e., the USFWS definition of "nearshore"). This watershed boundary and seaward limit have a total area of 13,420 mi^2^[@us_fish_and_wildlife_service_usfws_significant_1997]. However, given the nearshore scope of USACE’s studies, seaward extent is limited to ecosystems above a 20m depth contour (i.e., the USFWS definition of “nearshore”)[@us_fish_and_wildlife_service_usfws_significant_1997]. 
+Roache (1997) refers to quantification of uncertainty as estimation or banding of the numerical error in a numerical solution as it is used for decision making. More recently, one often sees uncertainty divided into two categories: epistemic and aleatory uncertainty. Epistemic uncertainty is considered to be due to insufficient knowledge, and as such, can be controlled or reduced through additional investigation and improved representation/resolution of a particular system. Aleatory uncertainty on the other hand is due to noise or stochasticity inherent in a system. As such, it is considered to be irreducible [Asch et al, 2016]. Here, we will use the term uncertainty to cover both categories unless noted explicitly.
 
-- _Project Boundaries_: The Bight ecosystem includes many upland and coastal ecosystems beyond the project boundaries (e.g., Eastern Long Island). The USACE study boundaries provide a second filter on the spatial limits of the NYBEM. The New York Bight ecosystem contained within the project boundaries has an area of 2,930 mi^2^.  
+The primary tools for assessing the accuracy of a computational model and the simulations it produces are known as Verification and Validation (V&V).  
 
-- _Aquatic Ecosystems_: A key focus of the NYBEM is assessment of indirect effects of proposed actions. Currently, upland and shoreline ecosystems above mean higher high water (MHHW) are not included in the models. Impact assessments from these systems (e.g., dunes, scrub-shrub, riparian zones) are better understood from prior impact analyses. Additionally, these systems are likely to experience fewer indirect impacts, and methods are generally available for assessing direct impacts. Upland ecosystems are not explicitly removed from the spatial domain at this phase, but are removed below through the absence of any patch-scale models at elevations above MHHW and the absence of hydrodynamic data in uplands.
+- Verification is the process of determining that a model implementation accurately represents the developer’s conceptual description of the model and the solution to the model [Oberkampf and Trucano, 2008].  
+- Validation is the process of determining the degree to which a model is an accurate representation of the real world from the perspective of the intended uses of the model [Oberkampf and Trucano, 2008].  
 
+Loosely, verification determines whether or not the equations underlying a computational model are being solved correctly, while validation addresses the question of whether or not the correct equations are being solved. We also distinguish validation from calibration. By calibration we mean the process of adjusting numerical or physical modeling parameters in the computational model for the purpose of improving agreement with experimental data [AIAA, 1998]. Finally, the process of accreditation is the official certification that a model or simulation, or federation of models and simulations, and its associated data is acceptable for use for a specific purpose [DMSCO, 2011]. It is also worth noting at this point that in the context of the DoD Modeling and Simulation (M&S) community, the real-world may include composite systems with natural, automated, and human components [DMSCO, 2011]. Here, we will primarily consider validation for the physical subsystems.
 
-## Phased Approach
+Verification includes code verification and solution verification. Solution verification determines the numerical accuracy of computational results. It typically involves quantifying the level of discretization error due to approximating temporal and spatial dynamics as well as the error due to resolving linear and nonlinear systems of equations [Oberkampf and Trucano, 2002]. Code verification encompasses determining whether or not the computational model correctly implements numerical algorithms as well as the entire solution process from reading input to archiving solutions, output quantities of interest (QoI), and run statistics. In other words, code verification requires finding and eliminating programming errors (bugs) through proper testing and software development practice. An associated type of error is usage error, which becomes more and more likely with the complexity of a model. Usage error can be controlled through proper documentation and training. Solution verification leans more heavily on techniques from applied mathematics, while code verification requires techniques from software engineering. Both are within the domain of computational science and engineering [Heroux and Willenbring, 2009].
 
-USACE planning studies sequentially make decisions about potential actions and buy-down risk and uncertainty to inform the next level of decision, before narrowing in on a recommended alternative. Furthermore, the USACE studies have proposed a “tiered” NEPA assessment, which is designed to gather more data and refine outcomes as a project proceeds. The NYBEM toolkit must be capable of responding to evolving project planning needs and data availability as these studies develop. As such, model development is explicitly being conducted in "phases," and NYBEM tools and methods will evolve alongside project planning. In each phase, development will proceed iteratively through the cycle described above of conceptualization, quantification, evaluation, application, and communication. Table 2.1 presents key aspects of this phased approach to development. 
+Validation is more challenging than verification, since it requires assessing whether or not a model’s analysis reflects the real world adequately. In fact, determining the level of error resulting from the numerical discretization is a prerequisite. Fundamentally, validation involves comparing computational model results with experimental data. Quantifying the level of error in the experimental data is then also required before the agreement between a model’s conceptual formulation and the physical system can be assessed clearly.
 
+Verification and validation are processes in which certain qualities of a model and its simulations are assessed. Given their complexity, computational models cannot be verified theoretically nor proven to be valid. Rather, they can only be shown to be incorrect or disproved [Oberkampf and Trucano, 2002]. The cornerstones of the VVUQ process are then benchmarks and metrics. That is, the VVUQ process is only as good as the problems through which we evaluate the model and the quantitative measures we use to determine model performance.
+
+Verification benchmarks are usually analytical solutions or trusted, highly accurate numerical solutions. Analytical solutions are obviously preferable, but they are typically available only in cases of highly simplified geometries, auxiliary conditions, and/or material parameters for the classes of models of interest to the lab. Techniques like the method of manufactured solutions [Katz and Sankaran, 2011] can help extend the range of available solutions, but reference numerical solutions and comparison with other codes are still important sources of benchmarks. Metrics for verification tests include global norms of the solution error, conservation of mass and energy, and/or maintenance of positivity and/or symmetry if appropriate. It is also important to evaluate the performance of the computational model versus expected behavior of the numerical methods and algorithms it applies. For example, establishing that a solution converges at the expected rate as the spatial and/or temporal discretization increases can be a valuable way to build confidence that a code is behaving as intended [Roache, 1997].
+
+As mentioned above, code verification requires tools and techniques from software engineering. The mapping of formal techniques from software engineering to simulation codes for hydrodynamics and other environmental processes is not always straightforward given the fact that we are often expanding the formulations and/or approximations in our models to better understand and solve engineering problems [Heroux and Willenbring, 2009]. However, minimal requirements like source control and documentation, cataloging of errors (bugs), and automated regression testing have become much easier and accessible over the last decade thanks to tools like gitlab, github, and bitbucket, which integrate source control with support for these development components (and more).
+
+Validation benchmarks involve comparison of computational results with data collected from experiments. These experiments include not just observations of the system but also estimated values for physical parameters, initial conditions, and boundary conditions needed for the model simulation. Again, estimates for the uncertainty in these values is also essential. The problems of interest to CHL and ERDC often involve a number of complex processes interacting at multiple scales. Validation of these multiphysics/multiscale problems is particularly difficult, and traditional validation experiments may only be available at the lab or “bench” scale. These experiments often involve not just a reduction in scale but also in the processes that are modeled in order to diminish the number of parameters that are unknown or poorly known. This is akin to the process of decomposing a problem into a hierarchy of phases or subsystems that is recommended by among others [AIAA, 1998]. Validation experiments at larger system scale are certainly possible and are a strength of ERDC in some areas (e.g., through the Field Research Facility at Duck). We will refer to these as field-scale validation experiments. In our view, the essence of a validation experiment is that it is designed with the intention of validating computational models in mind, the necessary physical parameters and auxiliary conditions are known and the primary sources of uncertainty are accounted for and quantified [Oberkampf and Trucano, 2008]. This is obviously a fluid definition that will depend on the physical system, the model, and its intended uses.
+
+Generally, one can define Strong Sense Benchmarks (SSBs) as test problems that have the following four characteristics [Oberkampf and Trucano, 2002]:  
+
+- the purpose of the benchmark is clearly understood,  
+- the definition and description of the benchmark is precisely stated,  
+- specific requirements are stated for how comparisons are to be made with the results of the benchmark, and  
+- acceptance criteria for comparison with the benchmark are defined.  
+
+The notion of an SSB can apply both to verification and validation test problems. Detailed recommendations for SSBs can be found in [Oberkampf, 2008]. Finally, it is important that benchmarks and VVUQ test suites in general be well-documented and widely promulgated. If they are not well understoodd and easy to use, they are of limited value.
+
+## Approach
+
+VVUQ is a process that must continue as long as computational models are being developed and applied. While some steps are straightforward, it is not simple or quick for models as complex as those used by CHL and ERDC. As pointed out in [Oberkampf and Trucano 2008, DMSCO, 2011], the limiting factors for VVUQ are typically time and or money rather than completeness of the analyses. As such, it is important to determine where our computational models are currently in the VVUQ process and what resources they have for VVUQ. To begin this assessment, the VVUQ team developed a survey of VVUQ activity (Table A1). For the first round of assessment, the survey was disseminated to key models in the Flood Risk Management Research Program.
 
 ```{r echo=FALSE}
 #Create empty table
-Table1 <- as.data.frame(matrix(NA, nrow = 7, ncol = 4))
-colnames(Table1) <- c("District Planning Milestone", "Interim Report", "Draft Feasibility Report", "Final Feasibility Report")
+TableA01 <- as.data.frame(matrix(NA, nrow = 5, ncol = 2))
+colnames(TableA01) <- c("", "")
 
 #Specify rows of the table
-Table1[1,] <- c("Type of Decision", "Preliminary Screening", "Alternatives Analysis", "Design and Operation of Recommended Alternative")
-Table1[2,] <- c("Scope of Environmental Effects", "Direct", "Direct + Indirect", "Direct + Indirect + Cumulative")
-Table1[3,] <- c("Spatial Extent of Environmental Effects", "Project footprint", "Offsite hydrodynamic change", "Mitigation requirements")
-Table1[4,] <- c("Anticipated Outputs", "Project footprint", "Habitat Quantity and Quality (by type)", "Habitat Quantity, Quality, and Connectivity (by type)")
-Table1[5,] <- c("Analytical Effort", "Rapid Screening", "Moderate", "Detailed")
-Table1[6,] <- c("Hydraulic Forcing", "Existing Condition", "One year of tidal forcing + Two sea levels", "Multiple years of tidal forcing + Multiple sea levels")
-Table1[7,] <- c("Model Inputs", "Footprint", "Footprint + Tidal Range + Salinity + Hydrodynamics + Env Data", "Footprint + Tidal Range + Salinity + Hydrodynamics + Env Data + Sediment + Temperature + Waves + Water Quality + Other")
+TableA01[1,] <- c("1.", "Name, Lab, contact info.")
+TableA01[2,] <- c("2.", "Name of the model.")
+TableA01[3,] <- c("3.", "Brief description of the model functioning.")
+TableA01[4,] <- c("4.", "What verification test problems are available? How are they documented?")
+TableA01[5,] <- c("5.", "What validation test problems are available? How are they documented?")
+TableA01[6,] <- c("6.", "Are any of the existing V&V test cases included in a form of regular testing frameworks? If so, what existing framework/tool/software is being used?")
+TableA01[7,] <- c("7.", "Does the code include a suite of tests for identifying software bugs/errors (i.e., regressions)? If you are using a third party tool for this, please identify that tool.")
+TableA01[8,] <- c("8.", "What level of sensitivity analysis and/or uncertainty quantification is integrated in the software/technology suite?")
+TableA01[9,] <- c("9.", "Are VV and UQ an integral part of current model execution? For example, do users receive some quantification of uncertainty as part of the model output? Are explicit guidelines and procedures for sensitivity analysis and uncertainty quantification provided for users of the software? Are these provided in technical reports and/or code documentation?")
+TableA01[10,] <- c("10.", "Are the VVUQ test suites made available to users? If so, how?")
+TableA01[11,] <- c("11.", "What are the estimated costs (dollars and person hours) for developing the VVUQ suite?")
+TableA01[12,] <- c("12.", "How much are you currently expending in terms of funds and manpower to support VVUQ? Is VVUQ explicitly supported in any of your funding?")
+TableA01[13,] <- c("13.", "What is the estimated cost of continuing your current VVUQ efforts? How much capacity exists in terms of expertise and availability of personnel for supporting additional VVUQ efforts? Are you currently doing VVUQ via outside contracts, or PETTT projects, community based, or something else?")
+TableA01[14,] <- c("14.", "What are the biggest gaps in the VVUQ suite? What do you see as the highest priority needs for your particular code and the lab in general?")
+TableA01[15,] <- c("15.", "What mechanism do you recommend for disseminating test databases and documentation?")
+TableA01[16,] <- c("16.", "Do you have suggestions for the stewardship and governance of the lab’s VVUQ suites?")
+TableA01[17,] <- c("17.", "What other suggestions do you have for the VVUQ effort?")
 
 #Send output table rows into a single matrix
-rownames(Table1) <- NULL
-knitr::kable(Table1, caption="Phased approach to development of the NYBEM.", align="c") 
+rownames(TableA01) <- NULL
+knitr::kable(TableA01, caption="Table A1. Survey questions regarding VVUQ.", align="l") 
 ```
 
-## Mediated Modeling
 
-The NYBEM intends to assess ecological consequences of alternative infrastructure options in a large, diverse ecosystem with many stakeholders and perspectives. “Mediated modeling” is used here to describe the family of techniques for building consensus among multiple partners to produce credible and defensible ecological models in a transparent way [@van_den_belt_mediated_2006]. There are many types of stakeholder-based model development processes that overlap in approach and emphasize collaboration: Model Prototyping, Participatory Modeling, Group Model Building, Companion Modeling and Mediated Model Development [See reviews by @voinov_modelling_2010; @gray_environmental_2017; and @hall_mediated_2019]. These processes are generally well-suited to environmental management problems that are politically and publicly-sensitive, complex, and engage diverse audiences [@van_den_belt_mediated_2006]. 
+## Results  
 
-For NYBEM, a suite of workshop-based model development methods are adapted from @herman_unpacking_2019. These workshops utilize a lecture-exercise format, where participants are led through the theory of a particular aspect of modeling (e.g., conceptual modeling) and then apply said theory to a focal ecosystem (i.e., the New York Bight). The workshops structure the iterative development of NYBEM with subsequent research and synthesis between meetings (See McKay et al. 2021 for additional detail). Appendix B summarizes workshop logistics and focal topics. Key milestones in model development are briefly described below, but the overarching strategy is to engage larger audiences and more formal forms of model evaluation as the toolkit develops.
+Of the sixteen surveys requested, responses were received from ten model teams: ADCIRC, AutoRoute and the Streamflow Prediction Tool (SPT), AdH, FUNWAVE, GSMB, GSSHA, HEC-RAS, HEC-FDA, HEC-WAT, and WaveWatch3. The remaining teams will be asked to submit their responses at a later date. Below we summarize the responses collectively to identify common trends and notable exceptions. Full responses are included in the appendix.
 
-* _Preliminary workshop with Philadelphia District_ (January 2019): A preliminary conceptual model was developed with USACE Philadelphia District team members, which focused generally on issues potentially relevant for environment compliance at the broadest level.
+The level of VVUQ activities varied widely across the models. In some cases, verification and validation are limited to a handful of benchmarks that are manually administered with minimal documentation. Most models have verification and validation through published reports and user documentation. Fewer include VV benchmarks in an automated testing framework, and still fewer release benchmark test input and data with their software.
 
-* _USACE workshop with Philadelphia and New York Districts_ (March 2019): A joint team from multiple USACE Districts was convened, and a strategy was proposed to develop NYBEM around key ecosystem types to reduce the dimensionality and complexity of the modeling problem and structure the path forward for model development.
+Several models include some form of automated unit and regression testing. However, access or use of a full development pipeline with automated testing was identified as a key gap by several models.
 
-* _Interagency conceptual modeling workshop_ (June 2019): Fifty scientists and environmental managers (from federal, state, and local government as well as select non-profit organizations and academic units) were brought together to focus on the development of conceptual models supporting the NYBEM. This workshop utilized a series of posters and activities for attendees to provide input on relevant variables and processes for each ecosystem type.
+The uncertainty quantification aspect of VVUQ appears to lag significantly behind verification and validation. Some models like HEC-WAT and HEC-FDA have uncertainty quantification as a part of their primary design. Others, like HEC-RAS and GSSHA include sensitivity analysis and Monte-Carlo capabilities for addressing parameter uncertainty, but fully integrated UQ is limited as a rule. Guidance for addressing uncertainty is generally not provided formally or available through user manuals and published technical reports.
 
-* _Interagency numerical modeling workshop_ (November 2019): A subset of attendees (20+) from the June 2019 workshop reconvened to discuss findings from the prior workshops. Prior to this meeting, the posters from June were formalized and synthesized with available scientific literature. At this meeting, attendees were able to review and revise preliminary versions of the model structure.
+There was consensus that the best way to disseminate VVUQ benchmarks and information was through web-sites or software portals together with the released code. Right now, most models do not provide benchmark input/output files directly to users via the web.
 
-* _Phase-1 model documentation_ (April 2022; this report): This report provides model development status as applied to the Draft Feasibility Report and Environmental Impact Statement for each study. USACE requires assessment and external evaluation of ecological models used in Feasibility-level planning decisions (i.e., model certification), and this report will be peer-reviewed according to these agency procedures.
+Collectively among the responding model groups, well over a million dollars has already been spent developing the existing VVUQ capabilities. The estimated cost to maintain existing VVUQ efforts or increase them to an acceptable level ranged from roughly 30K to 100K per year, with most models estimating around 50K per year. This estimate seems high and will likely drop once the initial test cases have been created and automatic regression testing software and other automated processes put into place. Likely, the annual cost per model will be on the order of $10k.
 
-* _Phase-2 development_ (Fall 2022 / Winter 2023): Habitat quality and system connectivity tools will be further developed following the release of the Draft Feasibility Reports. Any modifications of models will also undergo review and certification.
+There was also general agreement that VVUQ benchmarks are needed and could be a useful way of collaborating among modeling groups. Model-specific input files should be provided, but it was agreed that benchmark problems would be best distributed through model agnostic descriptions with model independent data.
 
-Rapid timelines and iterative development encourage a transparent approach for model documentation as well. We adopt a growing family of methods for "[reproducible research](https://ropensci.github.io/reproducibility-guide/sections/introduction/)," which embrace code and data sharing, enable review processes, and facilitate use of methods and results. Specifically, [R Markdown](https://rmarkdown.rstudio.com/) is applied to development and document models, which are coded in the [R Statistical Software](https://cran.r-project.org/). These tools minimize data transfer errors and facilitate internal inspection of code as it is developed. Similarly, all model code is contained within a transportable R-package (i.e., `nybem`) following [common development procedures](https://r-pkgs.org/). 
+The gaps identified by the modeling teams were: availability of high-quality data for validation, available personnel with VVUQ expertise, and clearly defined policy and tools for automated testing along with tools for user interface testing and engaging users in testing procedures.
 
+In summary, the state of VVUQ in the surveyed models is a mixed bag. The need for VVUQ is recognized universally, although some groups have made more progress than others. There is agreement that cross-model VVUQ efforts are needed, both to provide generality and broader coverage, while also encouraging greater collaboration.
+
+## Recommendations
+
+Many recommendations for best practices in VVUQ can be found in the literature. The work of Oberkampf and collaborators is notable [Oberkampf and Trucano, 2008, Oberkampf and Roy 2010], but there is a rich literature spanning several fields. In a military context, guidelines and templates for VV and accreditation are available from the DMSCO, while guidance on software development practices can also be found in recent efforts to bring improved software engineering practice to scientific computing and groups advocating practices for reproducible science [Nature, 2018].
+
+Based on the survey responses and discussions among the NTMS’s VVUQ focus group, we make the following recommendations for next steps for the VVUQ component of the NTMS.
+
+First, a standardized set of verification and validation benchmarks are needed.  
+
+- These tests should be grouped by physical process and dynamical regime rather than by model.  
+- Designing the benchmarks should be done as a collaboration among model developers, users, and experimentalists and should follow recognized best practices [e.g., Oberkampf and Trocano, 2008]. In particular, the benchmarks must (1) be well-documented in a model agnostic way, (2) have clearly defined metrics for code evaluation, and (3) widely shared via a web-based platform.
+
+We also recommend that individual models provide input decks and expected output results in connection with the benchmarks as well as a document describing any particular applicability issues for the given model. Current efforts within the NTMS in developing unified data formats should be leveraged in determining the best format for distributing benchmark tests.
+
+VVUQ practice has been driven to this point by individual model development groups. While these teams should obviously still be central in the VVUQ process, shared resources and direction are needed from the lab and technical programs. This includes manpower and funding resources. Resources need to be allocated to the model development teams. However, for VVUQ to be a uniform practice across the lab a small group with identified responsibility for VVUQ practice is likely needed. This group would also require adequate resources and expertise. Furthermore, this group should in general be made up of team members separate from the model develop teams. This separate grouping of testers and developers helps to ensure the integrity of the overall process and aids in the accreditation step to be discussed later. Concrete steps could include identifying a VVUQ focused work unit in the technical programs, requiring VVUQ to be addressed in all modeling related PMPs, and targeting hires in the field of VVUQ.
+
+Given funding and manpower constraints, it makes sense to pick an initial set of processes and models to evaluate. A logical choice in our opinion would be to consider wave and circulation models. First, these models are central to much of CHL’s civil works and military missions. Second, the Coastal Model Testbed effort already provides an excellent opportunity to engage modelers, experimentalists, and scientists with experts in field observations.
+
+Finally, we have spent relatively little time discussing accreditation. However, this is an essential step for models to be considered fully mature and is now required for certain classes of applications. The DMSCO provides guidance and examples of accreditation (or certification) procedures in the DoD Modeling and Simulation community. Some of these procedures may not be a perfect fit for the classes of models developed and supported by the lab, and there exist other certification procedures more appropriate for civil works applications which some of the surveyed models have already undergone (and continue to undergo). Accreditation of users for models is also important, maybe more so than an actual model accreditation. Expert tools in the hands of untrained users can be very dangerous. It is recommend that CHL develop a series of user certification classes for its models. These classes would be offered to USACE districts, military users as well as made available to academic institutions and external government and private sector contractors.
+
+It is recommended that software, infrastructure and suitable training be put in place for automatic regression testing and feature/bug tracking. Some modeling groups are already using some forms of automated regression testing, such as the AdH development team. For issue tracking and feature tasks, applications like Jira or Gitlab’s internal issue tracker can be used. Automated regression testing software such as CTest, from Kitware, or others readily available through the Defense Intelligence Information Enterprise (DI2E). This is an area with the Information Technology Lab (ITL) or the DoD High Performance Computing Modernization Program (HPCMP) could help to make recommendations for software to use, help to set up use cases and possibly provide training.
+
+Finally, the next phase is to develop a comprehensive plan for implementing these recommendations. This plan will need to have cost and times associated with each recommendation along with an order of priority for implementation for specific operational models.
+
+## References
+
+Asch, M., M. Bocquet, and M. Nodet, Data Assimilation: Methods, Algorithms, and Applications, SIAM, 2016.
+
+Challenges in Irreproducible Research, Special Issue, Nature 2018.
+
+Defense Modeling and Simulation Coordination Office (DMSCO), website https://vva.msco.mil, published 2011.
+
+Katz, A. and V. Sankaran, Mesh Quality Effects on the Accuracy of CFD solutions on Unstructured Meshes, Journal of Computational Physics, Volume 230, Issue 20 pages 7670-7686, 2011.
+
+Oberkampf, W.L. and C.J. Roy, Verification and Validation in Scientific Computings, Cambridge Scientific, 2010.
+
+Oberkampf, W.L. and T.G. Trucano, Verification and Validation in Computational Fluid Dynamics, Progress in Aerospace Sciences, Volume 38, pages 209-272, 2002.
+
+Oberkampf, W.L. and T.G. Trucano, Verification and Validation Benchmarks, Nuclear Engineering and Design, Volume 238, Issue 3, pages 716-743, 2008.
+
+Piccolo, S.R. and M.B. Frampton, Tools and techniques for computational reproducibility, Gigascience, Volume 5, doi 10.1186/s13742-016-0135-4 2016.
+
+Roache, P.J., Quantification of uncertainty in computational fluid dynamics, Annual Review of Fluid Mechanics, pages. 126–160

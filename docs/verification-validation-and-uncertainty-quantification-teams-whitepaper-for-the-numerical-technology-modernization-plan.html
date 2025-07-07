@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Verification, Validation and Uncertainty Quantification Team’s Whitepaper for the Numerical Technology Modernization Plan | Community based Numerical Technology Modernization Strategy</title>
+  <meta name="description" content="Insert brief description of NTMS." />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Verification, Validation and Uncertainty Quantification Team’s Whitepaper for the Numerical Technology Modernization Plan | Community based Numerical Technology Modernization Strategy" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Insert brief description of NTMS." />
+  <meta name="github-repo" content="skmckay/ERDC.NTMS" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Verification, Validation and Uncertainty Quantification Team’s Whitepaper for the Numerical Technology Modernization Plan | Community based Numerical Technology Modernization Strategy" />
+  
+  <meta name="twitter:description" content="Insert brief description of NTMS." />
+  
+
+<meta name="author" content="ERDC Coastal &amp; Hydraulics Laboratory" />
+
+
+<meta name="date" content="2019-01-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="numerical-technology-modernization-strategy.html"/>
+<link rel="next" href="component-based-software-design-teams-whitepaper-for-the-numerical-technology-modernization-program.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#mission"><i class="fa fa-check"></i>Mission</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#goals"><i class="fa fa-check"></i>Goals</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#glossary-and-acronymns"><i class="fa fa-check"></i>Glossary and Acronymns</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#points-of-contact"><i class="fa fa-check"></i>Points of Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="numerical-technology-modernization-strategy.html"><a href="numerical-technology-modernization-strategy.html"><i class="fa fa-check"></i><b>1</b> Numerical Technology Modernization Strategy</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="numerical-technology-modernization-strategy.html"><a href="numerical-technology-modernization-strategy.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="numerical-technology-modernization-strategy.html"><a href="numerical-technology-modernization-strategy.html#reinvented-solution-workspace"><i class="fa fa-check"></i><b>1.2</b> Reinvented solution workspace</a></li>
+<li class="chapter" data-level="1.3" data-path="numerical-technology-modernization-strategy.html"><a href="numerical-technology-modernization-strategy.html#unified-data-and-metadata-standards"><i class="fa fa-check"></i><b>1.3</b> Unified data and metadata standards</a></li>
+<li class="chapter" data-level="1.4" data-path="numerical-technology-modernization-strategy.html"><a href="numerical-technology-modernization-strategy.html#verification-validation-and-uncertainty-quantification"><i class="fa fa-check"></i><b>1.4</b> Verification, validation and uncertainty quantification</a></li>
+<li class="chapter" data-level="1.5" data-path="numerical-technology-modernization-strategy.html"><a href="numerical-technology-modernization-strategy.html#component-based-software"><i class="fa fa-check"></i><b>1.5</b> Component based software</a></li>
+<li class="chapter" data-level="1.6" data-path="numerical-technology-modernization-strategy.html"><a href="numerical-technology-modernization-strategy.html#community-partners"><i class="fa fa-check"></i><b>1.6</b> Community partners</a></li>
+<li class="chapter" data-level="1.7" data-path="numerical-technology-modernization-strategy.html"><a href="numerical-technology-modernization-strategy.html#references"><i class="fa fa-check"></i><b>1.7</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html"><a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html"><i class="fa fa-check"></i><b>2</b> Verification, Validation and Uncertainty Quantification Team’s Whitepaper for the Numerical Technology Modernization Plan</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html"><a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#introduction-1"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html"><a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#purpose"><i class="fa fa-check"></i><b>2.1.1</b> Purpose</a></li>
+<li class="chapter" data-level="2.1.2" data-path="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html"><a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#motivation-and-background"><i class="fa fa-check"></i><b>2.1.2</b> Motivation and Background</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html"><a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#approach"><i class="fa fa-check"></i><b>2.2</b> Approach</a></li>
+<li class="chapter" data-level="2.3" data-path="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html"><a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#results"><i class="fa fa-check"></i><b>2.3</b> Results</a></li>
+<li class="chapter" data-level="2.4" data-path="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html"><a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#recommendations"><i class="fa fa-check"></i><b>2.4</b> Recommendations</a></li>
+<li class="chapter" data-level="2.5" data-path="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html"><a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#references-1"><i class="fa fa-check"></i><b>2.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="component-based-software-design-teams-whitepaper-for-the-numerical-technology-modernization-program.html"><a href="component-based-software-design-teams-whitepaper-for-the-numerical-technology-modernization-program.html"><i class="fa fa-check"></i><b>3</b> Component-Based Software Design Team’s Whitepaper for the Numerical Technology Modernization Program</a></li>
+<li class="chapter" data-level="4" data-path="appendix-tbd.html"><a href="appendix-tbd.html"><i class="fa fa-check"></i><b>4</b> Appendix TBD</a></li>
+<li class="chapter" data-level="5" data-path="appendix-tbd-1.html"><a href="appendix-tbd-1.html"><i class="fa fa-check"></i><b>5</b> Appendix TBD</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Community based Numerical Technology Modernization Strategy</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Verification, Validation and Uncertainty Quantification Team’s Whitepaper for the Numerical Technology Modernization Plan<a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Version: 1.0.0<br />
+Date: 2019.03.18<br />
+Written by: Matthew Farthing and Chris Massey (<a href="mailto:Chris.Massey@usace.army.mil" class="email">Chris.Massey@usace.army.mil</a>)</p>
+<div id="introduction-1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Introduction<a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="purpose" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Purpose<a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#purpose" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There is a rich literature on Verification Validation and Uncertainty Quantification (VVUQ) across a range of disciplines from nuclear engineering to aeronautics and operations research. The purpose of this whitepaper is not to cover these topics in detail. For excellent reviews and textbooks we recommend (among others) [Oberkampf and Trucano, 2002, 2008, Oberkampf and Roy, 2010] as well as the documentation and guidance from groups such as the Defense Modeling and Simulation Coordination Office (DMSCO), <a href="https://vva.msco.mil" class="uri">https://vva.msco.mil</a>, and more recent efforts in reproducible scientific research [Piccolo and Frampton, 2016; Nature 2018 ]. Rather, our goal is to provide a summary of on-going VVUQ practice in a key set of models and to recommend steps for establishing a lab-wide VVUQ process as part of the Coastal and Hydraulics Laboratory (CHL) Numerical Technology Modernization Strategy (NTMS).</p>
+</div>
+<div id="motivation-and-background" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Motivation and Background<a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#motivation-and-background" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Computational modeling and simulation are essential tools in the U.S. Army Corps of Engineers (USACE) efforts to address the Nation’s water resources challenges. To do this effectively the models developed, and applied, must be credible. That is, users must have confidence that the simulations from a computational model have acceptable levels of uncertainty and error [Oberkampf and Trucano, 2002]. There are many ways to define error and uncertainty. As working terms, we will adopt those provided by the American Institute of Aeronautics and Astronautics (AIAA) in their 1998 “Guide for the verification and validation of computational fluid dynamics simulations” [AIAA, 1998].</p>
+<ul>
+<li>Error is a recognizable deficiency in any phase or activity of modeling and simulation that is not due to lack of knowledge.<br />
+</li>
+<li>Uncertainty is a potential deficiency in any phase or activity of the modeling process that is due to the lack of knowledge.</li>
+</ul>
+<p>Roache (1997) refers to quantification of uncertainty as estimation or banding of the numerical error in a numerical solution as it is used for decision making. More recently, one often sees uncertainty divided into two categories: epistemic and aleatory uncertainty. Epistemic uncertainty is considered to be due to insufficient knowledge, and as such, can be controlled or reduced through additional investigation and improved representation/resolution of a particular system. Aleatory uncertainty on the other hand is due to noise or stochasticity inherent in a system. As such, it is considered to be irreducible [Asch et al, 2016]. Here, we will use the term uncertainty to cover both categories unless noted explicitly.</p>
+<p>The primary tools for assessing the accuracy of a computational model and the simulations it produces are known as Verification and Validation (V&amp;V).</p>
+<ul>
+<li>Verification is the process of determining that a model implementation accurately represents the developer’s conceptual description of the model and the solution to the model [Oberkampf and Trucano, 2008].<br />
+</li>
+<li>Validation is the process of determining the degree to which a model is an accurate representation of the real world from the perspective of the intended uses of the model [Oberkampf and Trucano, 2008].</li>
+</ul>
+<p>Loosely, verification determines whether or not the equations underlying a computational model are being solved correctly, while validation addresses the question of whether or not the correct equations are being solved. We also distinguish validation from calibration. By calibration we mean the process of adjusting numerical or physical modeling parameters in the computational model for the purpose of improving agreement with experimental data [AIAA, 1998]. Finally, the process of accreditation is the official certification that a model or simulation, or federation of models and simulations, and its associated data is acceptable for use for a specific purpose [DMSCO, 2011]. It is also worth noting at this point that in the context of the DoD Modeling and Simulation (M&amp;S) community, the real-world may include composite systems with natural, automated, and human components [DMSCO, 2011]. Here, we will primarily consider validation for the physical subsystems.</p>
+<p>Verification includes code verification and solution verification. Solution verification determines the numerical accuracy of computational results. It typically involves quantifying the level of discretization error due to approximating temporal and spatial dynamics as well as the error due to resolving linear and nonlinear systems of equations [Oberkampf and Trucano, 2002]. Code verification encompasses determining whether or not the computational model correctly implements numerical algorithms as well as the entire solution process from reading input to archiving solutions, output quantities of interest (QoI), and run statistics. In other words, code verification requires finding and eliminating programming errors (bugs) through proper testing and software development practice. An associated type of error is usage error, which becomes more and more likely with the complexity of a model. Usage error can be controlled through proper documentation and training. Solution verification leans more heavily on techniques from applied mathematics, while code verification requires techniques from software engineering. Both are within the domain of computational science and engineering [Heroux and Willenbring, 2009].</p>
+<p>Validation is more challenging than verification, since it requires assessing whether or not a model’s analysis reflects the real world adequately. In fact, determining the level of error resulting from the numerical discretization is a prerequisite. Fundamentally, validation involves comparing computational model results with experimental data. Quantifying the level of error in the experimental data is then also required before the agreement between a model’s conceptual formulation and the physical system can be assessed clearly.</p>
+<p>Verification and validation are processes in which certain qualities of a model and its simulations are assessed. Given their complexity, computational models cannot be verified theoretically nor proven to be valid. Rather, they can only be shown to be incorrect or disproved [Oberkampf and Trucano, 2002]. The cornerstones of the VVUQ process are then benchmarks and metrics. That is, the VVUQ process is only as good as the problems through which we evaluate the model and the quantitative measures we use to determine model performance.</p>
+<p>Verification benchmarks are usually analytical solutions or trusted, highly accurate numerical solutions. Analytical solutions are obviously preferable, but they are typically available only in cases of highly simplified geometries, auxiliary conditions, and/or material parameters for the classes of models of interest to the lab. Techniques like the method of manufactured solutions [Katz and Sankaran, 2011] can help extend the range of available solutions, but reference numerical solutions and comparison with other codes are still important sources of benchmarks. Metrics for verification tests include global norms of the solution error, conservation of mass and energy, and/or maintenance of positivity and/or symmetry if appropriate. It is also important to evaluate the performance of the computational model versus expected behavior of the numerical methods and algorithms it applies. For example, establishing that a solution converges at the expected rate as the spatial and/or temporal discretization increases can be a valuable way to build confidence that a code is behaving as intended [Roache, 1997].</p>
+<p>As mentioned above, code verification requires tools and techniques from software engineering. The mapping of formal techniques from software engineering to simulation codes for hydrodynamics and other environmental processes is not always straightforward given the fact that we are often expanding the formulations and/or approximations in our models to better understand and solve engineering problems [Heroux and Willenbring, 2009]. However, minimal requirements like source control and documentation, cataloging of errors (bugs), and automated regression testing have become much easier and accessible over the last decade thanks to tools like gitlab, github, and bitbucket, which integrate source control with support for these development components (and more).</p>
+<p>Validation benchmarks involve comparison of computational results with data collected from experiments. These experiments include not just observations of the system but also estimated values for physical parameters, initial conditions, and boundary conditions needed for the model simulation. Again, estimates for the uncertainty in these values is also essential. The problems of interest to CHL and ERDC often involve a number of complex processes interacting at multiple scales. Validation of these multiphysics/multiscale problems is particularly difficult, and traditional validation experiments may only be available at the lab or “bench” scale. These experiments often involve not just a reduction in scale but also in the processes that are modeled in order to diminish the number of parameters that are unknown or poorly known. This is akin to the process of decomposing a problem into a hierarchy of phases or subsystems that is recommended by among others [AIAA, 1998]. Validation experiments at larger system scale are certainly possible and are a strength of ERDC in some areas (e.g., through the Field Research Facility at Duck). We will refer to these as field-scale validation experiments. In our view, the essence of a validation experiment is that it is designed with the intention of validating computational models in mind, the necessary physical parameters and auxiliary conditions are known and the primary sources of uncertainty are accounted for and quantified [Oberkampf and Trucano, 2008]. This is obviously a fluid definition that will depend on the physical system, the model, and its intended uses.</p>
+<p>Generally, one can define Strong Sense Benchmarks (SSBs) as test problems that have the following four characteristics [Oberkampf and Trucano, 2002]:</p>
+<ul>
+<li>the purpose of the benchmark is clearly understood,<br />
+</li>
+<li>the definition and description of the benchmark is precisely stated,<br />
+</li>
+<li>specific requirements are stated for how comparisons are to be made with the results of the benchmark, and<br />
+</li>
+<li>acceptance criteria for comparison with the benchmark are defined.</li>
+</ul>
+<p>The notion of an SSB can apply both to verification and validation test problems. Detailed recommendations for SSBs can be found in [Oberkampf, 2008]. Finally, it is important that benchmarks and VVUQ test suites in general be well-documented and widely promulgated. If they are not well understoodd and easy to use, they are of limited value.</p>
+</div>
+</div>
+<div id="approach" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Approach<a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#approach" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>VVUQ is a process that must continue as long as computational models are being developed and applied. While some steps are straightforward, it is not simple or quick for models as complex as those used by CHL and ERDC. As pointed out in [Oberkampf and Trucano 2008, DMSCO, 2011], the limiting factors for VVUQ are typically time and or money rather than completeness of the analyses. As such, it is important to determine where our computational models are currently in the VVUQ process and what resources they have for VVUQ. To begin this assessment, the VVUQ team developed a survey of VVUQ activity (Table A1). For the first round of assessment, the survey was disseminated to key models in the Flood Risk Management Research Program.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-6">Table 2.1: </span>Table A1. Survey questions regarding VVUQ.</caption>
+<colgroup>
+<col width="1%" />
+<col width="98%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">1.</td>
+<td align="left">Name, Lab, contact info.</td>
+</tr>
+<tr class="even">
+<td align="left">2.</td>
+<td align="left">Name of the model.</td>
+</tr>
+<tr class="odd">
+<td align="left">3.</td>
+<td align="left">Brief description of the model functioning.</td>
+</tr>
+<tr class="even">
+<td align="left">4.</td>
+<td align="left">What verification test problems are available? How are they documented?</td>
+</tr>
+<tr class="odd">
+<td align="left">5.</td>
+<td align="left">What validation test problems are available? How are they documented?</td>
+</tr>
+<tr class="even">
+<td align="left">6.</td>
+<td align="left">Are any of the existing V&amp;V test cases included in a form of regular testing frameworks? If so, what existing framework/tool/software is being used?</td>
+</tr>
+<tr class="odd">
+<td align="left">7.</td>
+<td align="left">Does the code include a suite of tests for identifying software bugs/errors (i.e., regressions)? If you are using a third party tool for this, please identify that tool.</td>
+</tr>
+<tr class="even">
+<td align="left">8.</td>
+<td align="left">What level of sensitivity analysis and/or uncertainty quantification is integrated in the software/technology suite?</td>
+</tr>
+<tr class="odd">
+<td align="left">9.</td>
+<td align="left">Are VV and UQ an integral part of current model execution? For example, do users receive some quantification of uncertainty as part of the model output? Are explicit guidelines and procedures for sensitivity analysis and uncertainty quantification provided for users of the software? Are these provided in technical reports and/or code documentation?</td>
+</tr>
+<tr class="even">
+<td align="left">10.</td>
+<td align="left">Are the VVUQ test suites made available to users? If so, how?</td>
+</tr>
+<tr class="odd">
+<td align="left">11.</td>
+<td align="left">What are the estimated costs (dollars and person hours) for developing the VVUQ suite?</td>
+</tr>
+<tr class="even">
+<td align="left">12.</td>
+<td align="left">How much are you currently expending in terms of funds and manpower to support VVUQ? Is VVUQ explicitly supported in any of your funding?</td>
+</tr>
+<tr class="odd">
+<td align="left">13.</td>
+<td align="left">What is the estimated cost of continuing your current VVUQ efforts? How much capacity exists in terms of expertise and availability of personnel for supporting additional VVUQ efforts? Are you currently doing VVUQ via outside contracts, or PETTT projects, community based, or something else?</td>
+</tr>
+<tr class="even">
+<td align="left">14.</td>
+<td align="left">What are the biggest gaps in the VVUQ suite? What do you see as the highest priority needs for your particular code and the lab in general?</td>
+</tr>
+<tr class="odd">
+<td align="left">15.</td>
+<td align="left">What mechanism do you recommend for disseminating test databases and documentation?</td>
+</tr>
+<tr class="even">
+<td align="left">16.</td>
+<td align="left">Do you have suggestions for the stewardship and governance of the lab’s VVUQ suites?</td>
+</tr>
+<tr class="odd">
+<td align="left">17.</td>
+<td align="left">What other suggestions do you have for the VVUQ effort?</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="results" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Results<a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Of the sixteen surveys requested, responses were received from ten model teams: ADCIRC, AutoRoute and the Streamflow Prediction Tool (SPT), AdH, FUNWAVE, GSMB, GSSHA, HEC-RAS, HEC-FDA, HEC-WAT, and WaveWatch3. The remaining teams will be asked to submit their responses at a later date. Below we summarize the responses collectively to identify common trends and notable exceptions. Full responses are included in the appendix.</p>
+<p>The level of VVUQ activities varied widely across the models. In some cases, verification and validation are limited to a handful of benchmarks that are manually administered with minimal documentation. Most models have verification and validation through published reports and user documentation. Fewer include VV benchmarks in an automated testing framework, and still fewer release benchmark test input and data with their software.</p>
+<p>Several models include some form of automated unit and regression testing. However, access or use of a full development pipeline with automated testing was identified as a key gap by several models.</p>
+<p>The uncertainty quantification aspect of VVUQ appears to lag significantly behind verification and validation. Some models like HEC-WAT and HEC-FDA have uncertainty quantification as a part of their primary design. Others, like HEC-RAS and GSSHA include sensitivity analysis and Monte-Carlo capabilities for addressing parameter uncertainty, but fully integrated UQ is limited as a rule. Guidance for addressing uncertainty is generally not provided formally or available through user manuals and published technical reports.</p>
+<p>There was consensus that the best way to disseminate VVUQ benchmarks and information was through web-sites or software portals together with the released code. Right now, most models do not provide benchmark input/output files directly to users via the web.</p>
+<p>Collectively among the responding model groups, well over a million dollars has already been spent developing the existing VVUQ capabilities. The estimated cost to maintain existing VVUQ efforts or increase them to an acceptable level ranged from roughly 30K to 100K per year, with most models estimating around 50K per year. This estimate seems high and will likely drop once the initial test cases have been created and automatic regression testing software and other automated processes put into place. Likely, the annual cost per model will be on the order of $10k.</p>
+<p>There was also general agreement that VVUQ benchmarks are needed and could be a useful way of collaborating among modeling groups. Model-specific input files should be provided, but it was agreed that benchmark problems would be best distributed through model agnostic descriptions with model independent data.</p>
+<p>The gaps identified by the modeling teams were: availability of high-quality data for validation, available personnel with VVUQ expertise, and clearly defined policy and tools for automated testing along with tools for user interface testing and engaging users in testing procedures.</p>
+<p>In summary, the state of VVUQ in the surveyed models is a mixed bag. The need for VVUQ is recognized universally, although some groups have made more progress than others. There is agreement that cross-model VVUQ efforts are needed, both to provide generality and broader coverage, while also encouraging greater collaboration.</p>
+</div>
+<div id="recommendations" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Recommendations<a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#recommendations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Many recommendations for best practices in VVUQ can be found in the literature. The work of Oberkampf and collaborators is notable [Oberkampf and Trucano, 2008, Oberkampf and Roy 2010], but there is a rich literature spanning several fields. In a military context, guidelines and templates for VV and accreditation are available from the DMSCO, while guidance on software development practices can also be found in recent efforts to bring improved software engineering practice to scientific computing and groups advocating practices for reproducible science [Nature, 2018].</p>
+<p>Based on the survey responses and discussions among the NTMS’s VVUQ focus group, we make the following recommendations for next steps for the VVUQ component of the NTMS.</p>
+<p>First, a standardized set of verification and validation benchmarks are needed.</p>
+<ul>
+<li>These tests should be grouped by physical process and dynamical regime rather than by model.<br />
+</li>
+<li>Designing the benchmarks should be done as a collaboration among model developers, users, and experimentalists and should follow recognized best practices [e.g., Oberkampf and Trocano, 2008]. In particular, the benchmarks must (1) be well-documented in a model agnostic way, (2) have clearly defined metrics for code evaluation, and (3) widely shared via a web-based platform.</li>
+</ul>
+<p>We also recommend that individual models provide input decks and expected output results in connection with the benchmarks as well as a document describing any particular applicability issues for the given model. Current efforts within the NTMS in developing unified data formats should be leveraged in determining the best format for distributing benchmark tests.</p>
+<p>VVUQ practice has been driven to this point by individual model development groups. While these teams should obviously still be central in the VVUQ process, shared resources and direction are needed from the lab and technical programs. This includes manpower and funding resources. Resources need to be allocated to the model development teams. However, for VVUQ to be a uniform practice across the lab a small group with identified responsibility for VVUQ practice is likely needed. This group would also require adequate resources and expertise. Furthermore, this group should in general be made up of team members separate from the model develop teams. This separate grouping of testers and developers helps to ensure the integrity of the overall process and aids in the accreditation step to be discussed later. Concrete steps could include identifying a VVUQ focused work unit in the technical programs, requiring VVUQ to be addressed in all modeling related PMPs, and targeting hires in the field of VVUQ.</p>
+<p>Given funding and manpower constraints, it makes sense to pick an initial set of processes and models to evaluate. A logical choice in our opinion would be to consider wave and circulation models. First, these models are central to much of CHL’s civil works and military missions. Second, the Coastal Model Testbed effort already provides an excellent opportunity to engage modelers, experimentalists, and scientists with experts in field observations.</p>
+<p>Finally, we have spent relatively little time discussing accreditation. However, this is an essential step for models to be considered fully mature and is now required for certain classes of applications. The DMSCO provides guidance and examples of accreditation (or certification) procedures in the DoD Modeling and Simulation community. Some of these procedures may not be a perfect fit for the classes of models developed and supported by the lab, and there exist other certification procedures more appropriate for civil works applications which some of the surveyed models have already undergone (and continue to undergo). Accreditation of users for models is also important, maybe more so than an actual model accreditation. Expert tools in the hands of untrained users can be very dangerous. It is recommend that CHL develop a series of user certification classes for its models. These classes would be offered to USACE districts, military users as well as made available to academic institutions and external government and private sector contractors.</p>
+<p>It is recommended that software, infrastructure and suitable training be put in place for automatic regression testing and feature/bug tracking. Some modeling groups are already using some forms of automated regression testing, such as the AdH development team. For issue tracking and feature tasks, applications like Jira or Gitlab’s internal issue tracker can be used. Automated regression testing software such as CTest, from Kitware, or others readily available through the Defense Intelligence Information Enterprise (DI2E). This is an area with the Information Technology Lab (ITL) or the DoD High Performance Computing Modernization Program (HPCMP) could help to make recommendations for software to use, help to set up use cases and possibly provide training.</p>
+<p>Finally, the next phase is to develop a comprehensive plan for implementing these recommendations. This plan will need to have cost and times associated with each recommendation along with an order of priority for implementation for specific operational models.</p>
+</div>
+<div id="references-1" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> References<a href="verification-validation-and-uncertainty-quantification-teams-whitepaper-for-the-numerical-technology-modernization-plan.html#references-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Asch, M., M. Bocquet, and M. Nodet, Data Assimilation: Methods, Algorithms, and Applications, SIAM, 2016.</p>
+<p>Challenges in Irreproducible Research, Special Issue, Nature 2018.</p>
+<p>Defense Modeling and Simulation Coordination Office (DMSCO), website <a href="https://vva.msco.mil" class="uri">https://vva.msco.mil</a>, published 2011.</p>
+<p>Katz, A. and V. Sankaran, Mesh Quality Effects on the Accuracy of CFD solutions on Unstructured Meshes, Journal of Computational Physics, Volume 230, Issue 20 pages 7670-7686, 2011.</p>
+<p>Oberkampf, W.L. and C.J. Roy, Verification and Validation in Scientific Computings, Cambridge Scientific, 2010.</p>
+<p>Oberkampf, W.L. and T.G. Trucano, Verification and Validation in Computational Fluid Dynamics, Progress in Aerospace Sciences, Volume 38, pages 209-272, 2002.</p>
+<p>Oberkampf, W.L. and T.G. Trucano, Verification and Validation Benchmarks, Nuclear Engineering and Design, Volume 238, Issue 3, pages 716-743, 2008.</p>
+<p>Piccolo, S.R. and M.B. Frampton, Tools and techniques for computational reproducibility, Gigascience, Volume 5, doi 10.1186/s13742-016-0135-4 2016.</p>
+<p>Roache, P.J., Quantification of uncertainty in computational fluid dynamics, Annual Review of Fluid Mechanics, pages. 126–160</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="numerical-technology-modernization-strategy.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="component-based-software-design-teams-whitepaper-for-the-numerical-technology-modernization-program.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

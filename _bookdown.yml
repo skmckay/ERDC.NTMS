@@ -1,4 +1,4 @@
-book_filename: "NYBEM-Report.Rmd"
+book_filename: "ERDC.NTMS.Rmd"
 output_dir: "docs"
 delete_merged_file: true
 language:

@@ -10,20 +10,13 @@ description: Insert brief description of NTMS.
 github-repo: skmckay/ERDC.NTMS
 ---
 
-# Preface {-}
+# Overview {-}
 
-Point of Contact
-
-Chris Massey, Ph.D.
-Coastal & Hydraulics Laboratory  
-U.S. Army Engineer Research and Development Center  
-Vicksburg, Mississippi
-
-<span style="color: red;">RECREATION OF 2019 DOCUMENT AS EXAMPLE</span>
+<span style="color: red;"> RECREATION OF 2019 DOCUMENT AS EXAMPLE. Could include example of version control in documentation format. Version.Patch.Bug becomes Publication.SectionRevision.Typo? </span>
 
 ## Mission {-}
 
-The mission of the Coastal and Hydraulics Laboratory (CHL) is to deliver solutions to our Nation’s most challenging coastal and hydraulic problems through research, development and application of cutting-edge science, engineering and technology. To support this mission, CHL is adopting this Numerical Technology Modernization Strategy (NTMS) to revolutionize the way it develops, applies, transitions into practice, and maintains numerical technologies developed for Civil Works and Military applications. The goals of the strategy are to guide CHL’s investments in numerical and data technologiestechnologies; to improve numerical modeling and data integration infrastructure; to establish a common system for digital technology development and maintenance, considering the entire business life cycle (from development to retirement) of CHL’s software and data products; to improve and integrate relevant data and numerical technologies, from simple tools and calculators to expert modeling systems, so that they are efficient to access, apply, and cost less to use and maintain; and to document a plan to facilitate interagency collaboration as well as for leveraging and growing resources.
+The mission of the Coastal and Hydraulics Laboratory (CHL) is to deliver solutions to our Nation’s most challenging coastal and hydraulic problems through research, development and application of cutting-edge science, engineering and technology. To support this mission, CHL is adopting this Numerical Technology Modernization Strategy (NTMS) to revolutionize the way it develops, applies, transitions into practice, and maintains numerical technologies developed for Civil Works and Military applications. The goals of the strategy are to guide CHL’s investments in numerical and data technologies; to improve numerical modeling and data integration infrastructure; to establish a common system for digital technology development and maintenance, considering the entire business life cycle (from development to retirement) of CHL’s software and data products; to improve and integrate relevant data and numerical technologies, from simple tools and calculators to expert modeling systems, so that they are efficient to access, apply, and cost less to use and maintain; and to document a plan to facilitate interagency collaboration as well as for leveraging and growing resources.
 
 
 ## Goals {-}
@@ -45,6 +38,14 @@ The mission of the Coastal and Hydraulics Laboratory (CHL) is to deliver solutio
 - _[ERDC](https://www.erdc.usace.army.mil/)_: U.S. Army Engineer Research and Development Center.  
 - _[USACE](https://www.usace.army.mil/)_: U.S. Army Corps of Engineers.  
 
+
+## Points of Contact {-}
+
+Chris Massey, Ph.D., Coastal & Hydraulics Laboratory, U.S. Army Engineer Research and Development Center, Vicksburg, Mississippi
+Email: Chris.Massey@erdc.dren.mil
+
+Tahirih Lackey, Ph.D., Coastal & Hydraulics Laboratory, U.S. Army Engineer Research and Development Center, Vicksburg, Mississippi
+Email: Tahirih.C.Lackey@erdc.dren.mil
 
 
 ```{r, echo=FALSE, include=FALSE}
