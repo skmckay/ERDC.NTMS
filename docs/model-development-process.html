@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Model Development Process | Community based Numerical Technology Modernization Strategy</title>
+  <meta name="description" content="Insert brief description of NTMS." />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Model Development Process | Community based Numerical Technology Modernization Strategy" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Insert brief description of NTMS." />
+  <meta name="github-repo" content="skmckay/ERDC.NTMS" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Model Development Process | Community based Numerical Technology Modernization Strategy" />
+  
+  <meta name="twitter:description" content="Insert brief description of NTMS." />
+  
+
+<meta name="author" content="ERDC Coastal &amp; Hydraulics Laboratory" />
+
+
+<meta name="date" content="2019-01-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="background.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#mission"><i class="fa fa-check"></i>Mission</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#goals"><i class="fa fa-check"></i>Goals</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#glossary-and-acronymns"><i class="fa fa-check"></i>Glossary and Acronymns</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>1</b> Background</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="background.html"><a href="background.html#problem-statement"><i class="fa fa-check"></i><b>1.1</b> Problem Statement</a></li>
+<li class="chapter" data-level="1.2" data-path="background.html"><a href="background.html#report-overview"><i class="fa fa-check"></i><b>1.2</b> Report Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="model-development-process.html"><a href="model-development-process.html"><i class="fa fa-check"></i><b>2</b> Model Development Process</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="model-development-process.html"><a href="model-development-process.html#spatial-extent"><i class="fa fa-check"></i><b>2.1</b> Spatial Extent</a></li>
+<li class="chapter" data-level="2.2" data-path="model-development-process.html"><a href="model-development-process.html#phased-approach"><i class="fa fa-check"></i><b>2.2</b> Phased Approach</a></li>
+<li class="chapter" data-level="2.3" data-path="model-development-process.html"><a href="model-development-process.html#mediated-modeling"><i class="fa fa-check"></i><b>2.3</b> Mediated Modeling</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Community based Numerical Technology Modernization Strategy</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="model-development-process" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Model Development Process<a href="model-development-process.html#model-development-process" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>When used in the context of complex management decisions with many partners, environmental and ecological modeling often benefit from approaches that emphasize transparency, increase user input during development, and clearly communicate model assumptions and limitations <span class="citation">[@van_den_belt_mediated_2004; @voinov_modelling_2010; @herman_unpacking_2019]</span>. Here, a general five-step modeling process is followed that applies best practices in ecological model development <span class="citation">[@grant_ecological_2008]</span>. First, general relationships among essential ecosystem components are formally <em>conceptualized</em> to tell the story of “how the system works” <span class="citation">[@fischenich_application_2008]</span>. Second, the model is <em>quantified</em> using a formal structure of functional relationships, algorithms, parameters, and numerical code. Third, models are <em>evaluated</em> relative to underlying scientific theory, numerical accuracy, and usability, which often entails techniques such as code checking, testing, verification, and sensitivity analyses. Fourth, a model is <em>applied</em> to a given management question, scenario, or assessment. Fifth, a strategy is developed and executed to <em>communicate</em> model development and application to technical and non-technical audiences. This process has been applied numerous times to select, adapt, or develop ecological models for USACE and non-USACE studies <span class="citation">[e.g., @mckay_aligning_2019;@herman_unpacking_2019]</span>, and the framework is intended to draw heavily from existing knowledge, data, and tools.</p>
+<p>USACE policy <span class="citation">[@USACE_assuring_2011]</span> defines a model as “a representation of a system for a purpose,” and thus specifying a modeling purpose and objective is often a foundational step in the modeling process. <strong>Here, our modeling objective is to articulate the mechanisms and magnitude of environmental effects of proposed coastal storm risk management actions in the New York Bight Ecosystem.</strong> However, this model (like all models) is being developed in a constrained environment with limited time and resources. Three key issues constrained and guided NYBEM development, each of which is addressed in subsequent sections:</p>
+<ul>
+<li><p>The model domain is limited to the spatial extent of the focal USACE studies.</p></li>
+<li><p>Model development is phased to align with USACE project planning milestones.</p></li>
+<li><p>Transparency in model development and input from stakeholders and partners were actively embraced to increase the adoption and acceptance of the tools, given the high-profile nature of the studies.</p>
+</p></li>
+</ul>
+<div id="spatial-extent" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Spatial Extent<a href="model-development-process.html#spatial-extent" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The cumulative project area of the ongoing CSRM studies exceeds 3,000 mi<sup>2</sup> and covers multiple states. The spatial extent of model application was defined by a sequence of three sequentially smaller filters (Figure 2):</p>
+<ul>
+<li><p><em>New York Bight</em>: The USFWS defined the ecosystems of the New York Bight in 1997 as the “open ocean region south of Long Island and east of New Jersey, known as the New York Bight proper” and all associated upstream estuaries, waters, and lands. This large spatial domain covers 31,276 mi<sup>2</sup> (10,206 mi<sup>2</sup> upland watershed and 21,070 mi<sup>2</sup> estuarine or marine). Specifically, the watershed is defined by ten 8-digit Hydrologic Unit Code (HUC) watersheds (02020006, 02020007, 02020008, 02030101, 02030103, 02030104, 02030105, 02030202, 02040301, and 02040302). The USFWS Bight definition includes all marine ecosystems offshore. However, given the nearshore scope of USACE’s studies, seaward extent is limited to ecosystems above a 20m depth contour (i.e., the USFWS definition of “nearshore”). This watershed boundary and seaward limit have a total area of 13,420 mi<sup>2</sup><span class="citation">[@us_fish_and_wildlife_service_usfws_significant_1997]</span>. However, given the nearshore scope of USACE’s studies, seaward extent is limited to ecosystems above a 20m depth contour (i.e., the USFWS definition of “nearshore”)<span class="citation">[@us_fish_and_wildlife_service_usfws_significant_1997]</span>.</p></li>
+<li><p><em>Project Boundaries</em>: The Bight ecosystem includes many upland and coastal ecosystems beyond the project boundaries (e.g., Eastern Long Island). The USACE study boundaries provide a second filter on the spatial limits of the NYBEM. The New York Bight ecosystem contained within the project boundaries has an area of 2,930 mi<sup>2</sup>.</p></li>
+<li><p><em>Aquatic Ecosystems</em>: A key focus of the NYBEM is assessment of indirect effects of proposed actions. Currently, upland and shoreline ecosystems above mean higher high water (MHHW) are not included in the models. Impact assessments from these systems (e.g., dunes, scrub-shrub, riparian zones) are better understood from prior impact analyses. Additionally, these systems are likely to experience fewer indirect impacts, and methods are generally available for assessing direct impacts. Upland ecosystems are not explicitly removed from the spatial domain at this phase, but are removed below through the absence of any patch-scale models at elevations above MHHW and the absence of hydrodynamic data in uplands.</p></li>
+</ul>
+</div>
+<div id="phased-approach" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Phased Approach<a href="model-development-process.html#phased-approach" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>USACE planning studies sequentially make decisions about potential actions and buy-down risk and uncertainty to inform the next level of decision, before narrowing in on a recommended alternative. Furthermore, the USACE studies have proposed a “tiered” NEPA assessment, which is designed to gather more data and refine outcomes as a project proceeds. The NYBEM toolkit must be capable of responding to evolving project planning needs and data availability as these studies develop. As such, model development is explicitly being conducted in “phases,” and NYBEM tools and methods will evolve alongside project planning. In each phase, development will proceed iteratively through the cycle described above of conceptualization, quantification, evaluation, application, and communication. Table 2.1 presents key aspects of this phased approach to development.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-3">Table 2.1: </span>Phased approach to development of the NYBEM.</caption>
+<colgroup>
+<col width="16%" />
+<col width="9%" />
+<col width="25%" />
+<col width="48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">District Planning Milestone</th>
+<th align="center">Interim Report</th>
+<th align="center">Draft Feasibility Report</th>
+<th align="center">Final Feasibility Report</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Type of Decision</td>
+<td align="center">Preliminary Screening</td>
+<td align="center">Alternatives Analysis</td>
+<td align="center">Design and Operation of Recommended Alternative</td>
+</tr>
+<tr class="even">
+<td align="center">Scope of Environmental Effects</td>
+<td align="center">Direct</td>
+<td align="center">Direct + Indirect</td>
+<td align="center">Direct + Indirect + Cumulative</td>
+</tr>
+<tr class="odd">
+<td align="center">Spatial Extent of Environmental Effects</td>
+<td align="center">Project footprint</td>
+<td align="center">Offsite hydrodynamic change</td>
+<td align="center">Mitigation requirements</td>
+</tr>
+<tr class="even">
+<td align="center">Anticipated Outputs</td>
+<td align="center">Project footprint</td>
+<td align="center">Habitat Quantity and Quality (by type)</td>
+<td align="center">Habitat Quantity, Quality, and Connectivity (by type)</td>
+</tr>
+<tr class="odd">
+<td align="center">Analytical Effort</td>
+<td align="center">Rapid Screening</td>
+<td align="center">Moderate</td>
+<td align="center">Detailed</td>
+</tr>
+<tr class="even">
+<td align="center">Hydraulic Forcing</td>
+<td align="center">Existing Condition</td>
+<td align="center">One year of tidal forcing + Two sea levels</td>
+<td align="center">Multiple years of tidal forcing + Multiple sea levels</td>
+</tr>
+<tr class="odd">
+<td align="center">Model Inputs</td>
+<td align="center">Footprint</td>
+<td align="center">Footprint + Tidal Range + Salinity + Hydrodynamics + Env Data</td>
+<td align="center">Footprint + Tidal Range + Salinity + Hydrodynamics + Env Data + Sediment + Temperature + Waves + Water Quality + Other</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="mediated-modeling" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Mediated Modeling<a href="model-development-process.html#mediated-modeling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The NYBEM intends to assess ecological consequences of alternative infrastructure options in a large, diverse ecosystem with many stakeholders and perspectives. “Mediated modeling” is used here to describe the family of techniques for building consensus among multiple partners to produce credible and defensible ecological models in a transparent way <span class="citation">[@van_den_belt_mediated_2006]</span>. There are many types of stakeholder-based model development processes that overlap in approach and emphasize collaboration: Model Prototyping, Participatory Modeling, Group Model Building, Companion Modeling and Mediated Model Development <span class="citation">[See reviews by @voinov_modelling_2010; @gray_environmental_2017; and @hall_mediated_2019]</span>. These processes are generally well-suited to environmental management problems that are politically and publicly-sensitive, complex, and engage diverse audiences <span class="citation">[@van_den_belt_mediated_2006]</span>.</p>
+<p>For NYBEM, a suite of workshop-based model development methods are adapted from <span class="citation">@herman_unpacking_2019</span>. These workshops utilize a lecture-exercise format, where participants are led through the theory of a particular aspect of modeling (e.g., conceptual modeling) and then apply said theory to a focal ecosystem (i.e., the New York Bight). The workshops structure the iterative development of NYBEM with subsequent research and synthesis between meetings (See McKay et al. 2021 for additional detail). Appendix B summarizes workshop logistics and focal topics. Key milestones in model development are briefly described below, but the overarching strategy is to engage larger audiences and more formal forms of model evaluation as the toolkit develops.</p>
+<ul>
+<li><p><em>Preliminary workshop with Philadelphia District</em> (January 2019): A preliminary conceptual model was developed with USACE Philadelphia District team members, which focused generally on issues potentially relevant for environment compliance at the broadest level.</p></li>
+<li><p><em>USACE workshop with Philadelphia and New York Districts</em> (March 2019): A joint team from multiple USACE Districts was convened, and a strategy was proposed to develop NYBEM around key ecosystem types to reduce the dimensionality and complexity of the modeling problem and structure the path forward for model development.</p></li>
+<li><p><em>Interagency conceptual modeling workshop</em> (June 2019): Fifty scientists and environmental managers (from federal, state, and local government as well as select non-profit organizations and academic units) were brought together to focus on the development of conceptual models supporting the NYBEM. This workshop utilized a series of posters and activities for attendees to provide input on relevant variables and processes for each ecosystem type.</p></li>
+<li><p><em>Interagency numerical modeling workshop</em> (November 2019): A subset of attendees (20+) from the June 2019 workshop reconvened to discuss findings from the prior workshops. Prior to this meeting, the posters from June were formalized and synthesized with available scientific literature. At this meeting, attendees were able to review and revise preliminary versions of the model structure.</p></li>
+<li><p><em>Phase-1 model documentation</em> (April 2022; this report): This report provides model development status as applied to the Draft Feasibility Report and Environmental Impact Statement for each study. USACE requires assessment and external evaluation of ecological models used in Feasibility-level planning decisions (i.e., model certification), and this report will be peer-reviewed according to these agency procedures.</p></li>
+<li><p><em>Phase-2 development</em> (Fall 2022 / Winter 2023): Habitat quality and system connectivity tools will be further developed following the release of the Draft Feasibility Reports. Any modifications of models will also undergo review and certification.</p></li>
+</ul>
+<p>Rapid timelines and iterative development encourage a transparent approach for model documentation as well. We adopt a growing family of methods for “<a href="https://ropensci.github.io/reproducibility-guide/sections/introduction/">reproducible research</a>,” which embrace code and data sharing, enable review processes, and facilitate use of methods and results. Specifically, <a href="https://rmarkdown.rstudio.com/">R Markdown</a> is applied to development and document models, which are coded in the <a href="https://cran.r-project.org/">R Statistical Software</a>. These tools minimize data transfer errors and facilitate internal inspection of code as it is developed. Similarly, all model code is contained within a transportable R-package (i.e., <code>nybem</code>) following <a href="https://r-pkgs.org/">common development procedures</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="background.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
