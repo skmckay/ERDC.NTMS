@@ -12,7 +12,9 @@ github-repo: skmckay/ERDC.NTMS
 
 # Overview {-}
 
-<span style="color: red;"> RECREATION OF 2019 DOCUMENT AS EXAMPLE. Could include example of version control in documentation format. Version.Patch.Bug becomes Publication.SectionRevision.Typo? </span>
+<span style="color: red;"> RECREATION OF 2019 DOCUMENT AS EXAMPLE. Could include example of version control in documentation format. Major.Minor.Patch becomes Publication.SectionRevision.Typo? </span>
+
+**Insert hyperlink to original pdf document.**
 
 ## Mission {-}
 
@@ -33,10 +35,25 @@ The mission of the Coastal and Hydraulics Laboratory (CHL) is to deliver solutio
 
 - _[ADCIRC](https://adcirc.org/)_: "a system of computer programs for solving time dependent, free surface circulation and transport problems in two and three dimensions. These programs utilize the finite element method in space allowing the use of highly flexible, unstructured grids." For this study, ADCIRC was used to predict storm surge.
 - _[AdH](https://www.erdc.usace.army.mil/Media/Fact-Sheets/Fact-Sheet-Article-View/Article/476708/ada/)_: Adaptive Hydraulics (AdH) numerical code is "a modular, parallel, adaptive finite-element model for one-, two- and three-dimensional (2D, and 3D) flow and transport." For this study, AdH was used to predict changes in local hydrodynamics.
+- _CF_: Climate Forecast.
 - _CHL_: ERDC's Coastal & Hydraulics Laboratory.
-- _NTMS_: Numerical Technology Modernization Strategy.
+- _CHS_: Coastal Hazards System.
+- _DOD_: Department of Defense.  
 - _[ERDC](https://www.erdc.usace.army.mil/)_: U.S. Army Engineer Research and Development Center.  
+- _ESMF_: Earth System Modeling Framework.  
+- _FRF_: CHL's Field Research Facility.  
+- _GOTM_: General Ocean Turbulence Model.  
+- _GUI_: Graphical user interface.  
+- _HPC_: High Performance Computing.  
+- _IT_: Information Technology.  
+- _NetCDF_: Network Common Data Form.  
+- _NOAA_: National Oceanic and Atmospheric Administration.  
+- _NTMS_: Numerical Technology Modernization Strategy.
+- _PETSc_: Portable, Extensible Toolkit for Scientific Computation.  
 - _[USACE](https://www.usace.army.mil/)_: U.S. Army Corps of Engineers.  
+- _USBR_: United States Bureau of Reclamation.  
+- _USGS_: United States Geological Survey.  
+- _VVUQ_: Verification, validation, and uncertainty quantification.
 
 
 ## Points of Contact {-}

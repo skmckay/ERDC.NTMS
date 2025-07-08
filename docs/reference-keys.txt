@@ -2,6 +2,7 @@ tab:unnamed-chunk-3
 tab:unnamed-chunk-4
 tab:unnamed-chunk-5
 tab:unnamed-chunk-6
+tab:unnamed-chunk-7
 numerical-technology-modernization-strategy
 introduction
 reinvented-solution-workspace
@@ -19,5 +20,15 @@ results
 recommendations
 references-1
 component-based-software-design-teams-whitepaper-for-the-numerical-technology-modernization-program
+introduction-2
+software-evaluation-criteria
+external-library-linkage-work-plan
+global-variable-removal-work-plan
+software-distribution-hpc-work-plan
+process-libraries
+metlib-meteorological-library
+translib-transport-library
+turblib-turbulence-library
+friclib-friction-library
 appendix-tbd
 appendix-tbd-1
